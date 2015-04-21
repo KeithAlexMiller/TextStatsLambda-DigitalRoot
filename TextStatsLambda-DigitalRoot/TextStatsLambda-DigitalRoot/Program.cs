@@ -19,9 +19,8 @@ namespace TextStatsLambda_DigitalRoot
             int sum = 0;
             int digRoot = 0;
             int temp = 0;
-            //ForEach(i => rootThisNumber.Add(Int32.Parse(i))); // maybe Convert.ToInt32() is better?
 
-            List<int> numbers = new List<int>(rootThisNumber.Length);
+            //loops through digits sets them to int in temp var and adds to sum 
             foreach (char c in rootThisNumber)
             {
                 temp = (c - '0');
@@ -58,33 +57,35 @@ namespace TextStatsLambda_DigitalRoot
 
         public static int NumberOfWords(string inputString)
         {
-            return 0;
+            return inputString.Split(' ').Count();
         }
 
         public static int NumberOfVowels(string inputString)
         {
-            return 0;
+            //returns count of vowel chars only
+            return inputString.Count(x => ("aeiou".Contains(x.ToString().ToLower())));
         }
 
         public static int NumberOfConsonants(string inputString)
         {
-            return 0;
+            //returs count of all specified consonants
+            return inputString.Count(x => ("qwrtyplkjhgfdszxcvbnm".Contains(x.ToString().ToLower())));
         }
 
         public static int NumberOfSpecialCharacters(string inputString)
         {
             // .,?;'!@#$%^&*() and spaces are considered special characters
-            return 0;
+            return inputString.Count(x => (" .,?;'!@#$%^&*()".Contains(x.ToString().ToLower())));
         }
 
         public static string LongestWord(string inputString)
         {
-            return string.Empty;
+            return inputString.Split(' ').OrderByDescending(x => x.Length).First();
         }
 
         public static string ShortestWord(string inputString)
         {
-            return string.Empty;
+            return inputString.Split(' ').OrderBy(x => x.Length).First();
         }
 
 
