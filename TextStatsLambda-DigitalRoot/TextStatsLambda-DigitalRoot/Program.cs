@@ -10,6 +10,12 @@ namespace TextStatsLambda_DigitalRoot
     {
         static void Main(string[] args)
         {
+            DigitalRoot("31337");
+
+            DigitalRoot("45734");
+
+            //Call all the lambda functions below and print out text stats
+            TextStat("A gun rack... a gun rack. I don't even own *a* gun, let alone many guns that would necessitate an entire rack. What am I gonna do with a gun rack?");
 
             Console.ReadKey();
         }
@@ -55,8 +61,15 @@ namespace TextStatsLambda_DigitalRoot
             return digRoot;
         }
 
+        public static int NumberOfCharacters(string inputString)
+        {
+            //return all char count
+            return inputString.Count();
+        }
+
         public static int NumberOfWords(string inputString)
         {
+            //return word count
             return inputString.Split(' ').Count();
         }
 
@@ -80,14 +93,39 @@ namespace TextStatsLambda_DigitalRoot
 
         public static string LongestWord(string inputString)
         {
+            //return longest word in string
             return inputString.Split(' ').OrderByDescending(x => x.Length).First();
         }
 
         public static string ShortestWord(string inputString)
         {
+            //return shortest word in string
             return inputString.Split(' ').OrderBy(x => x.Length).First();
         }
 
+        public static void TextStat(string input)
+        {
+            Console.WriteLine("Number of Characters: " + NumberOfCharacters(input));
+            Console.WriteLine();
 
+            Console.WriteLine("Number of Words: " + NumberOfWords(input));
+            Console.WriteLine();
+
+            Console.WriteLine("Number of vowels : " + NumberOfVowels(input));
+            Console.WriteLine();
+
+            Console.WriteLine("Number of Consonants: " + NumberOfConsonants(input));
+            Console.WriteLine();
+
+            Console.WriteLine("Number of Special Characters: " + NumberOfSpecialCharacters(input));
+            Console.WriteLine();
+
+            Console.WriteLine("Longest Word: " + LongestWord(input));
+            Console.WriteLine();
+
+            Console.WriteLine("Shortest Word: " + ShortestWord(input));
+            Console.WriteLine();
+            
+        }
     }
 }
